@@ -11,7 +11,7 @@ Background: in login page
     And I login with "user" password
     Then I should be able to see "Welcome to Cuz Translation" page title
 
-  @loginPositive
+  @loginPositiveTranslator
   Scenario: login with valid credentials as a translator
     When I login with "translator" email adress
     And I login with "translator" password
