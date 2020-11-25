@@ -6,16 +6,16 @@ class documentDetailsPage extends Page {
         return $("//div[@class='bot-nav-column']/button")
     };
     get documentType() {
-        return $("//label[contains(text(),'Select Document Type')]/..//input")
+        return $("//p[contains(text(),'Select Document Type')]/../../following-sibling::div//input")
     };
     get documentTypeList() {
-        return $("//label[contains(text(),'Select Document Type')]/..//ul")
+        return $("((//ul[@role='listbox'])[1]/li)[1]")
     };
     get documentDetails() {
-        return $("//label[contains(text(),'Set Document Details')]/..//input")
+        return $("//p[contains(text(),'Set Document Details')]/../../following-sibling::div//input")
     };
     get documentDetailsList() {
-        return $("//label[contains(text(),'Set Document Details')]/..//ul")
+        return $("((//ul[@role='listbox'])[2]/descendant::*)[1]")
     }
 
     selectDocumentType(arg1, arg2) {
@@ -26,11 +26,12 @@ class documentDetailsPage extends Page {
             });
         this.documentType.click();
         this.documentType.setValue(arg1);
-        browser.pause(250);
+        browser.pause(2000);
+        //this.waitForElementVerification(this.documentTypeList,arg1);
         this.documentTypeList.click();
         this.documentDetails.click();
         this.documentDetails.setValue(arg2);
-        browser.pause(250);
+        browser.pause(1000);
         this.documentDetailsList.click();
         // this.countinueButton.waitForDisplayed(5000);
         // this.countinueButton.click();

@@ -3,64 +3,61 @@ import Page from "../base.page";
 class reviewProjectPage extends Page {
     //label[contains(text(),'Video Chat Platform')]/following-sibling::div
     get ProjectTitle() {
-        return $("//label[contains(text(),'Project Title')]/following-sibling::div")
+        return $("//p[contains(text(),'Project Title')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get VideoChatPlatform() {
-        return $("//label[contains(text(),'Video Chat Platform')]/following-sibling::div")
+        return $("//p[contains(text(),'Video Chat Platform')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
-    get ContactInformation() {
-        return $("//label[contains(text(),'Contact Information')]/following-sibling::div")
+    get ContactInformation() {ol
+        return $("//p[contains(text(),'Contact Information')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get SourceLanguage() {
-        return $("//label[contains(text(),'Source Language')]/following-sibling::div")
+        return $("//p[contains(text(),'Source Language')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get TargetLanguages() {
-        return $("(//label[contains(text(),'Target Language')]/following-sibling::div/span)[1]")
+        return $("(//p[contains(text(),'Target Language')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get AppointmentTopic() {
-        return $("//label[contains(text(),'Appointment Topic')]/following-sibling::div")
+        return $("//p[contains(text(),'Appointment Topic')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get AppointmentDetails() {
-        return $("//label[contains(text(),'Appointment Details')]/following-sibling::div")
+        return $("//p[contains(text(),'Appointment Details')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get AppointmentType() {
-        return $("//label[contains(text(),'Appointment Type')]/following-sibling::div")
+        return $("//p[contains(text(),'Appointment Type')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get AppointmentStartDateAndTime() {
-        return $("//label[contains(text(),'Appointment Start Date and Time')]/following-sibling::div")
+        return $("//p[contains(text(),'Appointment Start Date and Time')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get AppointmentEndDateAndTime() {
-        return $("//label[contains(text(),'Appointment End Date and Time')]/following-sibling::div")
+        return $("//p[contains(text(),'Appointment End Date and Time')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get AppointmentAddress() {
-        return $("//label[contains(text(),'Appointment Address')]/following-sibling::div")
+        return $("//p[contains(text(),'Appointment Address')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get AppointmentDuration() {
-        return $("//label[contains(text(),'Appointment Duration')]/following-sibling::div")
+        return $("//p[contains(text(),'Appointment Duration')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get CertificationType() {
-        return $("//label[contains(text(),'Certification Type')]/following-sibling::div")
+        return $("//p[contains(text(),'Certification Type')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get TypeofDocument() {
-        return $("//label[contains(text(),'Type of Document')]/following-sibling::div")
+        return $("//p[contains(text(),'Type of Document')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get Subject() {
-        return $("//label[contains(text(),'Subject')]/following-sibling::div")
+        return $("//p[contains(text(),'Subject')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get DueDate() {
-        return $("//label[contains(text(),'Due Date')]/following-sibling::div")
+        return $("//p[contains(text(),'Due Date')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get DressCode() {
-        return $("//label[contains(text(),'Dress Code')]/following-sibling::div")
+        return $("//p[contains(text(),'Dress Code')]/../../following-sibling::div//div[@class='cuz-field cuz-field-left']")
     };
     get FirstInterpreterName() {
         return $("(//div[@class='file-name---doc-card'])[1]")
     };
     get SecondInterpreterName() {
         return $("(//div[@class='file-name---doc-card'])[2]")
-    };
-    get SourceLanguage() {
-        return $("//label[contains(text(),'Source Language')]/following-sibling::div")
     };
     get FirstTargetLanguage() {
         return $("(//span[@class='pill'])[1]")

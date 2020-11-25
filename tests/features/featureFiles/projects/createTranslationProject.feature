@@ -5,36 +5,41 @@ Feature: Creating new trasnlation project
     As a user I should be able to create new translation project
 
 Background: I am on the project page
-    Given I am on the login page
-    When I login "user" email and "user" password
+    Given I am on the projects page
 
 @createProject @smoke
-Scenario: Create a document translation with valid data
+Scenario Outline: Create a document translation with valid data
     When I click plus symbol
-    And  I select "translation" project
+    And I select "translation" project
     And I upload documents "pdf1"
-    And I select language from "Turkish" to "English"
+    And I select language from "<language1>" to "<laguage2>"
     And I click continue
-    And I select document type as a "Legal" and document details "contracts"
+    And I select document type as a "<docType>" and document details "<docDetail>"
     And I click continue
-    And I select certification type "Certificate of Translation (Free of Charge)"
+    And I select certification type "<certType>"
     And I click continue
-    And I type project title as a "driver license" and select date as a "2021"-"August"-"30" "10":"00" 
+    And I type project title as a "<title>" and select date as a "2021"-"Dec"-"30" "10":"00" 
     And I click continue
     And I select legal aid details "no"
     And I click continue
     And I select translator
     And I click continue
-    And I check details of project
-    And I enter "valid" referal code and select payment method
+    And I check language details of project "<language1>" "<language2>"
+    And I check document type details of project "<docType>" "<docDetail>"
+    And I check certification type details of project "<certType>"
+    And I check project title details of project "<title>" "30 Dec 2021 10:00"
     Then I should able to see project offer sent message
+
+Examples: edit interpretation project
+    | language1  | laguage2 | docType | docDetail    | certType                                    | title          | 
+    | Turkish    | English  | Legal   | Arbitrations | Certificate of Translation (Free of Charge) | driver license | 
 
 @createProjectWithInvalidUpload
 Scenario: Create a document translation with invalid document
     When I click plus symbol
     And I select "translation" project
     And I upload invalid document
-    Then I should be able to see warning notification "Warning: Unsupported file types can not be added the upload queue."
+    Then I should be able to see invalid document type notification
 
 @createProjectWithInvalidTitle
 Scenario: Create a document translation with invalid title
@@ -43,7 +48,7 @@ Scenario: Create a document translation with invalid title
     And I upload documents "pdf1"
     And I select language from "Turkish" to "English"
     And I click continue
-    And I select document type as a "Legal" and document details "contracts"
+    And I select document type as a "Legal" and document details "Arbitrations"
     And I click continue
     And I select certification type "Certificate of Translation (Free of Charge)"
     And I click continue
@@ -56,7 +61,7 @@ Scenario: Create a document translation project with used LAO number
     And I upload documents "pdf1"
     And I select language from "Turkish" to "English"
     And I click continue
-    And I select document type as a "Legal" and document details "contracts"
+    And I select document type as a "Legal" and document details "Arbitrations"
     And I click continue
     And I select certification type "Certificate of Translation (Free of Charge)"
     And I click continue
@@ -67,25 +72,32 @@ Scenario: Create a document translation project with used LAO number
     Then I should be able to see certification number already exist message
 
 @invalidReferalCode @smoke
-Scenario: Creating a document translation project with invalid referal and promo code
+Scenario Outline: Creating a document translation project with invalid referal and promo code
     When I click plus symbol
-    And  I select "translation" project
+    And I select "translation" project
     And I upload documents "pdf1"
-    And I select language from "Turkish" to "English"
+    And I select language from "<language1>" to "<laguage2>"
     And I click continue
-    And I select document type as a "Legal" and document details "contracts"
+    And I select document type as a "<docType>" and document details "<docDetail>"
     And I click continue
-    And I select certification type "Certificate of Translation (Free of Charge)"
+    And I select certification type "<certType>"
     And I click continue
-    And I type project title as a "driver license" and select date as a "2021"-"August"-"30" "10":"00" 
+    And I type project title as a "<title>" and select date as a "2021"-"Dec"-"30" "10":"00" 
     And I click continue
     And I select legal aid details "no"
     And I click continue
     And I select translator
     And I click continue
-    And I check details of project 
+    # And I check language details of project "<language1>" "<language2>"
+    And I check document type details of project "<docType>" "<docDetail>"
+    And I check certification type details of project "<certType>"
+    And I check project title details of project "<title>" "30 Dec 2021 10:00"
+    And I click continue
     And I enter "invalid" referal code and select payment method
     Then I should be able to see code can not be found message
+Examples: edit interpretation project
+    | language1  | laguage2 | docType | docDetail    | certType                                    | title          | 
+    | Turkish    | English  | Legal   | Arbitrations | Certificate of Translation (Free of Charge) | driver license | 
 
 @deleteProject @smoke
 Scenario: delete the first project
@@ -100,7 +112,7 @@ Scenario: Create a hard copy document translation with valid data (standart deli
     And I upload documents "pdf1"
     And I select language from "Turkish" to "English"
     And I click continue
-    And I select document type as a "Legal" and document details "contracts"
+    And I select document type as a "Legal" and document details "Arbitrations"
     And I click continue
     And I select certification type "Affidavit of Translation"
     And I click continue
@@ -125,7 +137,7 @@ Scenario: Create a hard copy document translation with valid data (Express Deliv
     And I upload documents "pdf1"
     And I select language from "Turkish" to "English"
     And I click continue
-    And I select document type as a "Legal" and document details "contracts"
+    And I select document type as a "Legal" and document details "Arbitrations"
     And I click continue
     And I select certification type "Affidavit of Translation"
     And I click continue
@@ -150,7 +162,7 @@ Scenario: Create a hard copy document translation with invalid data (Delivery no
     And I upload documents "pdf1"
     And I select language from "Turkish" to "English"
     And I click continue
-    And I select document type as a "Legal" and document details "contracts"
+    And I select document type as a "Legal" and document details "Arbitrations"
     And I click continue
     And I select certification type "Affidavit of Translation"
     And I click continue

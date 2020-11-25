@@ -7,16 +7,17 @@ var pngFilePath = path.join(__dirname, '../../testData/uploadFiles/png file.png'
 class uploadDocument extends Page {
 
     get dragDropField() {
-        return $("//input[@class='file-input']")
+        return $("//input[@type='file']")
     };
-    get starUploadingButton() {
-        return $("//div[@class='btn-wrapper']/button")
+    get invalidTypeWarning() {
+        return $("//div[@class='cuz-alert-wrapper cuz-error small']//strong")
     }
     get deleteFileIcon() {
-        return $("//img[@src='/_nuxt/img/delete_s.c72a85d.svg']")
+        return $("(//span[@class=cuz-dynamic-icon trash cuz-icon-trash'])[1]")
     }
 
     uploadDocAndContinue(arg) {
+        //browser.pause(5000)
         this.dragDropField.waitForEnabled(5000);
         switch(arg) {
             case "pdf1":
@@ -34,9 +35,7 @@ class uploadDocument extends Page {
             default:
               // code block
           }
-        
-        this.starUploadingButton.waitForClickable();
-        this.starUploadingButton.click();
+       
         this.countinueButton.waitForClickable({
             timeout: 60000
         });
@@ -46,8 +45,6 @@ class uploadDocument extends Page {
     uploadNewDocAndContinue() {
         this.dragDropField.waitForEnabled(5000);
         this.dragDropField.setValue(pdfFilePath2);
-        this.starUploadingButton.waitForClickable();
-        this.starUploadingButton.click();
         this.countinueButton.waitForClickable({
             timeout: 60000
         });
@@ -57,8 +54,6 @@ class uploadDocument extends Page {
     uploadInvalidDocAndContinue() {
         this.dragDropField.waitForEnabled(5000);
         this.dragDropField.setValue(batFilePath);
-        // this.starUploadingButton.waitForClickable();
-        // this.starUploadingButton.click();
         // this.countinueButton.waitForClickable({
         //     timeout: 50000
         // });

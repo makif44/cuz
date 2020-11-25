@@ -4,7 +4,7 @@ import data from "../../testData/profileData"
 class paymentDetailPage extends Page{
 
     get referralCode(){return $("//input[@placeholder='Please Enter a Referral Code']")};
-    get referalCodeError(){return $("//div[@class='ref-code']")};
+    get referalCodeError(){return $("//p[contains(text(),'Code cannot be found.')]")};
     get defaultPaymentMethod(){return $("default-payment-method")}
     get offerSent(){return $("//h2[@class='title']")};
 

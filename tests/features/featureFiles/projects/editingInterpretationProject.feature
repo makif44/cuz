@@ -5,8 +5,7 @@ Feature: editing interpretation project
     As a user I should be able to edit an interpretation project
 
 Background: I am on the project page
-    Given I am on the login page
-    When I login "user" email and "user" password
+    Given I am on the projects page
 
 @editingOnSiteInterpreationProject 
 Scenario Outline: Editing OnSite interpretation project with Editing language pair, Interpretation Details, Location

@@ -3,6 +3,7 @@ import ProjectPage from '../../pages/projectPages/projectsHome.page'
 import profileSettingPage from '../../pages/profilePages/profileSetting.page';
 import editProfilePage from '../../pages/profilePages/editProfile.page';
 import profilePage from '../../pages/profilePages/profile.page';
+import uploadDocumentPage from '../../pages/projectPages/uploadDocument.page';
 
 
 When("I click profile button", ()=> {
@@ -16,6 +17,10 @@ When("I go to settings and {string} section", (arg1)=> {
 
 When("I update profile data", ()=> {
     editProfilePage.updatedata();
+});
+
+When("I create new profile data", ()=> {
+    editProfilePage.createData();
 });
 
 Then("I should be able to see {string} green wrapper notification", (arg1)=> {
@@ -43,6 +48,12 @@ Then("I should be able to see warning notification {string}", (arg1)=> {
     {timeout:10000, timeoutMsg:"notification not visible"});
     //editProfilePage.redWrapperNotification.waitForDisplayed(3000)
     expect(editProfilePage.warningMessage).toHaveText(arg1);
+});
+
+Then("I should be able to see invalid document type notification", ()=> {
+    uploadDocumentPage.invalidTypeWarning.waitForDisplayed();
+    expect(uploadDocumentPage.invalidTypeWarning).toHaveTextContaining('could not be loaded.');
+
 });
 
 

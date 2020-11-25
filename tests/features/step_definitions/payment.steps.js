@@ -33,9 +33,10 @@ When("I delete a payment method", () => {
     addNewPayment.deletePaymentMethod();
 });
 
-Then("I should be able to see {string} or {string} notification", (arg1,arg2) => {
-    addNewPayment.verificationMessage(arg1,arg2);
+When("I delete all payment method", () => {
+    addNewPayment.deleteAllPaymentMethod();
 });
+
 Then("I should be able to see wrong card number notation", () => {
-    expect(addNewPayment.wrongCardNumberNotation).toHaveText('Your card number is incorrect.')
+    expect(addNewPayment.wrongCardNumberNotation).toHaveTextContaining('The card number is incorrect. Check the card’s number or use a different card.')
 });

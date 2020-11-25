@@ -3,19 +3,19 @@ import Page from "../base.page";
 class selectTranslatorPage extends Page {
 
     get translator() {
-        return $("(//div[@class='card selectable'])[1]")
+        return $("(//div[@class='cuz-radio-button'])[1]")
     };
     get translator2() {
         return $("//div[@class='details-column']")
     };
     get language1() {
-        return $("//div[@class='tab active']")
+        return $("//span[@class='cuz-tab']")
     };
     get language2() {
         return $("//div[@class='tab']")
     };
     get message() {
-        return $("//p[contains(text(),'Here are the most qualified translators for your p')]")
+        return $("//strong[contains(text(),'Here are the most qualified translators for your p')]")
     };
     selectTranslator() {
         this.waitForWrapperLoadMaskDisappear();

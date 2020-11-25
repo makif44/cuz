@@ -9,10 +9,10 @@ class certificationTypePage extends Page {
     selectCertification(arg) {
         //this.waitForWrapperLoadMaskDisappear();
         browser.waitUntil(() =>
-        $("//span[starts-with(text(),'"+arg+"')]//preceding-sibling::span").isClickable(), {
-                timeout: 10000
+        $("//span[contains(text(),'"+arg+"')]//preceding-sibling::div").isClickable(), {
+                timeout: 20000
             });
-            $("//span[starts-with(text(),'"+arg+"')]//preceding-sibling::span").click();
+            $("//span[contains(text(),'"+arg+"')]//preceding-sibling::div").click();
     }
 }
 export default new certificationTypePage

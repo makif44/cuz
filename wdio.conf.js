@@ -2,6 +2,7 @@ const fs = require('fs');
 const argv = require("yargs").argv;
 const wdioParallel = require('wdio-cucumber-parallel-execution');
 const { removeSync } = require('fs-extra');
+const path = require('path');
 
 // The below module is used for cucumber html report generation
 const reporter = require('cucumber-html-reporter');
@@ -79,9 +80,19 @@ exports.config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 1,
+        maxInstances: 2,
         //
-        browserName: 'chrome',        
+        browserName: 'chrome',
+        'goog:chromeOptions': {
+            args: [
+                '--disable-infobars',
+                '--window-size=1700,850',
+                //'--headless',
+                // '--no-sandbox',
+                // '--disable-gpu',
+                // '--disable-dev-shm-usage',
+            ],
+        },                
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -160,7 +171,8 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'silent',
+    logLevel: 'info',
+    outputDir: path.resolve(__dirname, './tests/reports/logs'),
     //
     // Set specific log levels per logger
     // loggers:
@@ -227,7 +239,13 @@ exports.config = {
         ['cucumberjs-json', {
             jsonFolder: jsonTmpDirectory,
             language: 'en',
-        }]
+        }],
+        ['allure', {
+            outputDir: './tests/reports/allure-results/',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: false,
+          }
+        ]
     
 
     ],
@@ -334,7 +352,7 @@ exports.config = {
      * afterEach in Mocha)
      */
      afterHook: function (test, context, { error, result, duration, passed, retries }) {
-        browser.deleteCookies(); 
+        //browser.deleteCookies(); 
         browser.closeWindow(); 
             
     },

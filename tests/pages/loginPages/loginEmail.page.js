@@ -5,8 +5,7 @@ import data from '../../testData/credentials'
   
 
     get emailInbox(){return $("//input[@placeholder='Email']")};
-    get continueButton(){return $("button")};
-    get invalidEmailError(){return $("//p[@class='error-detail errors-block']")};
+    get invalidEmailError(){return $("//div[@class='cuz-field-error-text']")};
 
 
     open(){
@@ -31,9 +30,12 @@ import data from '../../testData/credentials'
         this.emailInbox.setValue( email);
         
     }
-    clickContinue(){
-        this.continueButton.waitForEnabled(3000);
-        this.continueButton.click();
+
+    login2( email ){
+        
+        this.emailInbox.setValue( email);
+        
     }
+    
 }
 export default new LoginEmailPage()

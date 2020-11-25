@@ -5,19 +5,19 @@ import utils from "../../utilities/utils";
 class legalAidPage extends Page {
 
     get yesCheck() {
-        return $("//body/div[@id='__nuxt']/div[@id='__layout']/div[@class='section']/div/div[@class='legal-aid-details container w-container']/span/div[@class='component-wrapper']/div[1]/label[1]/span[1]")
+        return $("//span[contains(text(),'Yes')]//preceding-sibling::div")
     };
     get noCheck() {
-        return $("//body/div[@id='__nuxt']/div[@id='__layout']/div[@class='section']/div/div[@class='legal-aid-details container w-container']/span/div[@class='component-wrapper']/div[2]/label[1]/span[1]")
+        return $("//span[contains(text(),'No')]//preceding-sibling::div")
     };
     get legalAidNumber() {
-        return $("//label[contains(text(),'Legal Aid Certification Numbe')]/following-sibling::input")
+        return $("//p[contains(text(),'Legal Aid Certification Number')]/../../following-sibling::div//input")
     };
     get expirationDate() {
-        return $("//label[contains(text(),'Expiration Date')]/following-sibling::input")
+        return $("//p[contains(text(),'Expiration Date')]/../../following-sibling::div//input")
     };
     get updateButton() {
-        return $("//button[contains(text(),'Update')]")
+        return $("//span[contains(text(),'Update')]")
     };
 
 

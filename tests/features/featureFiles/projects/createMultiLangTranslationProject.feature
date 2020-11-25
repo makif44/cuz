@@ -5,9 +5,8 @@ Feature: Creating multi language translation project
    As a user I should be able to create multi language document translation project
 
 Background: I am on the project page
-    Given I am on the login page
-    When I login "user" email and "user" password
-
+    Given I am on the projects page
+    
 @createMultiLanguageDocTranslationProject
 Scenario: Creating a multi lang document translation project with valid data
     When I click plus symbol
@@ -15,7 +14,7 @@ Scenario: Creating a multi lang document translation project with valid data
     And I upload documents "pdf1"
     And I select languages from "English" to "French (Canada)" and "Turkish"
     And I click continue
-    And I select document type as a "Legal" and document details "contracts"
+    And I select document type as a "Legal" and document details "Arbitrations"
     And I click continue
     And I select certification type "Certificate of Translation (Free of Charge)"
     And I click continue
@@ -57,12 +56,12 @@ Scenario Outline: Creating a multi lang document translation project with valid 
 Examples: Legal 
     | Document Type     | Document Details              | 
     | Legal             | Contracts & Agreements        |
-    # | Legal             | Licenses & Permits            |
-    # | Legal             | Wills and Trusts              |
-    # | Legal             | certificates                  |
-    # | Legal             | Legal Letters                 |
-    # | Legal             | Notices & Notes               |
-    # | Legal             | Other                         |
+    | Legal             | Licenses & Permits            |
+    | Legal             | Wills and Trusts              |
+    | Legal             | certificates                  |
+    | Legal             | Legal Letters                 |
+    | Legal             | Notices & Notes               |
+    | Legal             | Other                         |
 
 # @financialMulTrans 
 # Examples: Financial

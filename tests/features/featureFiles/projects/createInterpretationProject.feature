@@ -5,13 +5,12 @@ Feature: Creating new interpretation project
     As a user I should be able to create a new interpretation project
 
 Background: I am on the project page
-    Given I am on the login page
-    When I login "user" email and "user" password
+    Given I am on the projects page
 
 @createInterpretationVideoProject @smoke
 Scenario: Create interpretation project with valid data
     When I click plus symbol
-    And  I select "interpretation" project
+    And I select "interpretation" project
     And I select language from "Turkish" to "English"
     And I click continue
     And I select appointment type as "Video" interpretation

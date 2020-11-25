@@ -2,9 +2,8 @@ import Page from "../base.page";
 
 class createNewProjectPage extends Page{
 
-    get translationProject(){return $("//h3[contains(text(),'Translation Project')]")};
-    get interpretationProject(){return $("//h3[contains(text(),'Interpretation Project')]")}
-    get countinueButton(){return $("div.footer-section div.footer.w-container:nth-child(1) div.bot-nav-wrapper div.bot-nav-column > button.button.w-button.blue")};
+    get translationProject(){return $("//div[contains(text(),'Document Translation')]")};
+    get interpretationProject(){return $("//div[contains(text(),'Interpretation')]")}
 
     clickProject(arg){
         //this.translationProject.waitForEnabled(5000);

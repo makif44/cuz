@@ -11,7 +11,8 @@ class LoginCodePage extends Page {
 
     enterInvalidCode() {
         this.loginCodeInbox.setValue("AS56R24Q");
-        this.countinueButton.click();
+        browser.pause(2000);
+        this.clickContinue();
     }
 
 }

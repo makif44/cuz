@@ -5,8 +5,7 @@ Feature: Creating multi language Video interpretation project
     As a user I should be able to create a new multi language interpretation project
 
 Background: I am on the project page
-    Given I am on the login page
-    When I login "user" email and "user" password
+    Given I am on the projects page
 
 @multiLangVideoInterpreationProjectValidData @smoke
 Scenario: Create multi language Video interpretation project with valid data

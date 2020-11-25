@@ -2,13 +2,13 @@ import Page from '../base.page'
 
 class ProjectsHomePage extends Page {
     get plusSymbol() {
-        return $("(//button)[1]")
+        return $("//span[@class='cuz-btn-icon cuz-new-project cuz-icon-add']")
     };
     get pageTitle() {
-        return $("//h2[@class='title']")
+        return $("//h1[@class='cuz-title']")
     };
     get firstProject() {
-        return $("(//div[@class='project-title-column---list-item'])[1]")
+        return $("(//div[@class='cuz-dynamic-wrapper'])[1]")
     };//a[@class="close-button w-inline-block nuxt-link-active"]
     
 

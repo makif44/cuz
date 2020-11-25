@@ -5,8 +5,7 @@ Feature: Editing the project
     As a user I should be able to edit an existing project
 
 Background: I am on the project page
-    Given I am on the login page
-    When I login "user" email and "user" password
+    Given I am on the projects page
 
 @editingProjectwithDocument 
 Scenario: Editing translation project with editing document

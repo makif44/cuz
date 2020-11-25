@@ -1,12 +1,11 @@
 @regression
 @multiLangOnSiteInterpreationProject
-Feature: Creating OnSite interpretation project
+Feature: Creating multi language OnSite interpretation project
 
     As a user I should be able to create a new multi language On-Site interpretation project
 
 Background: I am on the project page
-    Given I am on the login page
-    When I login "user" email and "user" password
+    Given I am on the projects page
 
 @multiLangOnSiteInterpreationProjectValidData @smoke
 Scenario: Create OnSite interpretation project with valid data

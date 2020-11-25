@@ -1,12 +1,13 @@
+const fakeData = require("../utilities/generate-data")
 module.exports={
 
-    'cardName':'DIMITRI OLYMPOS',
+    'cardName': fakeData.fakeFirstName()+" "+fakeData.fakeLastName(),
     'visaCardNumber': '4242424242424242',
     'americaCardNumber': '378282246310005',
-    'wrongCardNumber':'1234123412341234',
-    'expirationDate': '10/22',
-    'cvc': '334',
-    'a_cvc' : '1234',
-    'country': 'Greece',
-    'postalCode': '12543'
+    'wrongCardNumber': fakeData.fakeNumber(1000000000000000,9999999999999999),
+    'expirationDate': fakeData.fakeNumber(10,12)+"/"+fakeData.fakeNumber(21,25),
+    'cvc': fakeData.fakeNumber(100,999),
+    'a_cvc' : fakeData.fakeNumber(1000,9999),
+    'country': 'Canada',
+    'postalCode': fakeData.fakePostalCode()
 };

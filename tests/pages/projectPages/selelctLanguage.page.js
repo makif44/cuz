@@ -2,23 +2,23 @@ import Page from "../base.page";
 
 class selectLanguagePage extends Page{
 
-    get countinueButton(){return $("//div[@class='bot-nav-column']/button")};
-    get sourceLanguage(){return $("//label[contains(text(),'Source Language')]/..//input")};
-    get targetLanguage(){return $("//label[contains(text(),'Target Language')]/..//input")};
-    get sourceList(){return $("((//ul[@role='listbox'])[1]/descendant::*)[1]")};
-    get targetList(){return $("((//ul[@role='listbox'])[2]/descendant::*)[1]")}
-    get deleteTargetLanguage(){return $("(//span[@class='selected-close'])[1]/img")}
+    get sourceLanguage(){return $("//p[contains(text(),'Source Language')]/../../following-sibling::div//input")};
+    get targetLanguage(){return $("//p[contains(text(),'Target Language')]/../../following-sibling::div//input")};
+    get sourceList(){return $("((//ul[@role='listbox'])[1]/li)[1]")};
+    get targetList(){return $("((//ul[@role='listbox'])[2]/li)[1]")}
+    get deleteTargetLanguage(){return $("(//span[@class='icon cuz-icon-close'])[1]")}
     
     selectLanguages(arg1,arg2){
         this.waitForWrapperLoadMaskDisappear();
         this.sourceLanguage.waitForClickable({timeout:20000});
         this.sourceLanguage.click({x: 0, y: 0});
         this.sourceLanguage.setValue(arg1);
-        browser.pause(250);
+        //this.waitForElementVerification(this.sourceList, arg1);
+        browser.pause(1500)
         this.sourceList.click();
         this.targetLanguage.click({x: 0, y: 0});
         this.targetLanguage.setValue(arg2);
-        browser.pause(250);
+        browser.pause(500);
         this.targetList.click({x: 0, y: 0});
         // this.countinueButton.waitForDisplayed(5000);
         // this.countinueButton.click();
